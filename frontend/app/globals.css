@@ -1,0 +1,158 @@
+@import "tailwindcss";
+
+/* SwissBorg Theme Variables */
+:root {
+  /* Primary Colors */
+  --borg-green: #01c38d;
+  --borg-green-light: #00e5a0;
+  --borg-green-dark: #00a676;
+
+  /* Background Colors */
+  --borg-dark: #0d0e12;
+  --borg-darker: #08090b;
+  --borg-card: #1a1b23;
+  --borg-card-hover: #22232e;
+
+  /* Border & Divider */
+  --borg-border: rgba(255, 255, 255, 0.08);
+
+  /* Text Colors */
+  --borg-gray: #9ca3af;
+  --borg-gray-light: #d1d5db;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(
+    135deg,
+    var(--borg-green) 0%,
+    var(--borg-green-light) 100%
+  );
+  --gradient-dark: linear-gradient(
+    180deg,
+    var(--borg-dark) 0%,
+    var(--borg-darker) 100%
+  );
+}
+
+@theme inline {
+  /* SwissBorg Colors */
+  --color-borg-green: var(--borg-green);
+  --color-borg-green-light: var(--borg-green-light);
+  --color-borg-green-dark: var(--borg-green-dark);
+  --color-borg-dark: var(--borg-dark);
+  --color-borg-darker: var(--borg-darker);
+  --color-borg-card: var(--borg-card);
+  --color-borg-card-hover: var(--borg-card-hover);
+  --color-borg-border: var(--borg-border);
+  --color-borg-gray: var(--borg-gray);
+  --color-borg-gray-light: var(--borg-gray-light);
+
+  /* Fonts */
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--borg-dark);
+  color: white;
+  font-family: var(--font-sans, system-ui, -apple-system, sans-serif);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Background Pattern */
+.bg-grid-pattern {
+  background-image: linear-gradient(
+      rgba(1, 195, 141, 0.03) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(1, 195, 141, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Gradient Text */
+.text-gradient {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow Effects */
+.glow-green {
+  box-shadow: 0 0 40px rgba(1, 195, 141, 0.3);
+}
+
+.glow-green-sm {
+  box-shadow: 0 0 20px rgba(1, 195, 141, 0.2);
+}
+
+/* Animated Background Orbs */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-20px) translateX(10px);
+  }
+  50% {
+    transform: translateY(-10px) translateX(-10px);
+  }
+  75% {
+    transform: translateY(-30px) translateX(5px);
+  }
+}
+
+.animate-float {
+  animation: float 20s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 25s ease-in-out infinite;
+  animation-delay: -5s;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--borg-darker);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--borg-card);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--borg-card-hover);
+}
+
+/* Selection */
+::selection {
+  background: var(--borg-green);
+  color: white;
+}
+
+/* Focus Visible */
+:focus-visible {
+  outline: 2px solid var(--borg-green);
+  outline-offset: 2px;
+}
+
+/* Input Autofill Override */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: white;
+  -webkit-box-shadow: 0 0 0px 1000px var(--borg-card) inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
