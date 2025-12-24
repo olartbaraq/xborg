@@ -169,7 +169,11 @@ export class AuthController {
     if (accessToken) {
       try {
         const user = await this.authService.getUserFromToken(accessToken);
-        return { authenticated: true, user };
+        const { email, isActive, firstName, lastName, createdAt } = user;
+        return {
+          authenticated: true,
+          user: { email, isActive, firstName, lastName, createdAt },
+        };
       } catch {
         // Token expired, but we have refresh token
         if (refreshToken) {

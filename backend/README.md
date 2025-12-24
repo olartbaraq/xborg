@@ -150,19 +150,6 @@ backend/
 └── package.json
 ```
 
-## 🧪 Testing
-
-```bash
-# Unit tests
-yarn test
-
-# E2E tests
-yarn test:e2e
-
-# Test coverage
-yarn test:cov
-```
-
 ## 📝 Database Migrations
 
 The application uses TypeORM migrations for database schema management. **Never use `synchronize: true` in production!**
